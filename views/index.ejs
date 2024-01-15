@@ -1,0 +1,35 @@
+<%- include ('partials/heater.ejs') %>
+<%- include ('partials/homenavbar.ejs', {categories: categories}) %>
+<body>
+    <div class="container">
+        <hr>
+        <div class="jumbotron">
+            <h1 class="display-4">Bem-vindo!!</h1>
+            <p class="lead">Este é um simples blog do guidepress!!</p>
+            <hr class="my-4">
+            <p>Descrição detalhada</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais</a>
+        </div>
+        <br>
+        <br>
+
+        <% articles.forEach(article =>{ %>
+            <div class="card">
+                <div class="card-header">
+                    <h3><%= article.title %></h3>
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-success" href="/<%= article.slug %>">Ler artigo</a>
+                </div>
+            </div>
+            <br>
+        <%})%>
+        <div class="row">
+            <div class="col col-12">
+                <a href="/article/page/2" class="btn btn-dark" style="float:right">Next >>></a>
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+<%- include ('partials/footer.ejs') %>

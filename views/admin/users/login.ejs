@@ -1,0 +1,24 @@
+<%- include ('../../partials/heater.ejs') %>
+<body>
+
+
+    <div class="container">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h3>Login</h3>
+            </div>
+            <div class="card-body">
+                <form action="/authenticate" method="post">
+                    <input class="form-control" type="text" name="name" placeholder="Digite aqui seu nome" required><br>
+                    <input class="form-control" type="email"  name="email" id="" placeholder="email@exemplo.com" required><br>
+                    <input class="form-control" type="password" name="password" placeholder="Digite aqui sua senha" required><br>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success btn-block">Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include ('../../partials/footer.ejs') %>

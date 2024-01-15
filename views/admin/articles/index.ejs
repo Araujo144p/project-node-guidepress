@@ -1,0 +1,49 @@
+<%- include ('../../partials/heater.ejs') %>
+<%- include ('../../partials/nav.ejs') %>
+<div class="container">
+    <hr>
+    <h2> Artigos </h2>
+    <a href="/admin/article/new" class="btn btn-primary"> Criar novo artigo</a>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Slug</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% articles.forEach(article =>{ %>
+                <tr>
+                    <td><%= article.id %></td>
+                    <td><%= article.title %></td>
+                    <td><%= article.slug %></td>
+                    <td><%= article.category.title %></td>
+                    <td>
+                        
+                            <a class="btn btn-warning" href="/admin/article/edit/<%= article.id %>">Editar</a>
+                        <form method="post" action="/articles/delete" style="display: inline;" onsubmit="formDelet(event, this)">
+                            <input type="hidden" name="id" value="<%= article.id %>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include ('../../partials/footer.ejs') %>
+<script>
+    function formDelet(event, form){
+        event.preventDefault()
+        console.log("Artigo nao deletado")
+        let desision = confirm("Deseja deletar esse artigo?")
+        if(desision){
+            form.submit()
+        }
+
+    }
+</script>
